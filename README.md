@@ -155,7 +155,7 @@ pip install evdev      # Linux only - for virtual HID device
 
 3. **Run the application**
    ```bash
-   python hand_mouse.py
+   python hand_control.py
    ```
 
 4. **Position your hands**
@@ -432,7 +432,7 @@ This project evolved through multiple iterations addressing real usability issue
 
 ### Main Files
 
-- `hand_mouse.py` - Latest with improved scroll detection
+- `hand_control.py` - Latest with improved scroll detection
 
 ### Key Components
 
