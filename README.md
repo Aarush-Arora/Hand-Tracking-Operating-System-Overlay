@@ -1,8 +1,8 @@
 # Gesture-Controlled Operating System Interface
 
-> **⚠️ WORK IN PROGRESS**: This is an actively developed prototype for a gesture-based OS input layer. It is NOT production-ready and should be considered experimental software.
+> **WARNING: WORK IN PROGRESS** - This is an actively developed prototype for a gesture-based OS input layer. It is NOT production-ready and should be considered experimental software.
 
-## 🎯 Project Vision
+## Project Vision
 
 This is **not a demo or script**. This is the foundation for a **gesture-based Operating System input layer** intended to replace or augment traditional input devices:
 - Mouse
@@ -13,9 +13,9 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
 
 ---
 
-## 📋 Current Status
+## Current Status
 
-### ✅ What Works
+### What Works
 - **Two-hand gesture system**
   - Left hand: Cursor control, left/right click, drag & drop
   - Right hand: Two-finger scroll
@@ -25,8 +25,8 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
 - **Visual feedback** with green ring overlay on clicks
 - **Debug mode** with real-time detection values
 
-### ⚠️ Known Limitations
-- **Uses `pyautogui`** - High latency (~100ms), not true OS-level integration
+### Known Limitations
+- **Uses pyautogui** - High latency (~100ms), not true OS-level integration
 - **Single-threaded** - Overlay can block main loop
 - **No calibration system** - Fixed thresholds may not work for all hand sizes
 - **Camera-dependent** - Performance varies with lighting and camera quality
@@ -34,7 +34,7 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
 - **No multi-monitor optimization**
 - **No persistence** - Settings reset on restart
 
-### 🚧 In Development
+### In Development
 - Migration to native input APIs (`pynput` for Windows, `evdev` for Linux)
 - Gesture state machine for deterministic behavior
 - Kalman filtering for ultra-smooth cursor tracking
@@ -45,7 +45,7 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
 
 ---
 
-## 🛠️ Technical Architecture
+## Technical Architecture
 
 ### Current Implementation
 
@@ -71,7 +71,7 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
                  │
 ┌────────────────▼────────────────────────┐
 │       PyAutoGUI (Current)               │
-│    ⚠️  High latency, not OS-native      │
+│    WARNING: High latency, not OS-native │
 └────────────────┬────────────────────────┘
                  │
 ┌────────────────▼────────────────────────┐
@@ -111,7 +111,7 @@ The goal is **OS-level interaction**, not application-specific hacks. This syste
 
 ---
 
-## 📦 Requirements
+## Requirements
 
 ### Hardware
 - **Webcam** - 720p or higher recommended, 60 FPS preferred
@@ -138,7 +138,7 @@ pip install evdev      # Linux only - for virtual HID device
 
 ---
 
-## 🚀 Installation & Usage
+## Installation & Usage
 
 ### Quick Start
 
@@ -155,7 +155,7 @@ pip install evdev      # Linux only - for virtual HID device
 
 3. **Run the application**
    ```bash
-   python hand_control.py
+   python hand_control_final.py
    ```
 
 4. **Position your hands**
@@ -184,35 +184,37 @@ pip install evdev      # Linux only - for virtual HID device
 
 ---
 
-## 🎮 Gesture Guide
+## Gesture Guide
 
 ### Left Hand (Control Hand)
 
-| Gesture | Action | How To |
-|---------|--------|--------|
-| 📍 **Index finger extended** | Move cursor | Point and move your finger within the tracking box |
-| 👆 **Index + Thumb pinch (quick)** | Left click | Touch index and thumb together briefly |
-| 👆 **Index + Thumb pinch (hold 0.35s)** | Grab & drag | Touch and hold, then move hand to drag |
-| ☝️ **Middle + Thumb pinch** | Right click | Touch middle finger and thumb together |
+| Gesture | Action | Description |
+|---------|--------|-------------|
+| **Index finger extended** | Move cursor | Point and move your finger within the tracking box |
+| **Index + Thumb pinch (quick)** | Left click | Touch index and thumb together briefly |
+| **Index + Thumb pinch (hold 0.35s)** | Grab & drag | Touch and hold, then move hand to drag |
+| **Middle + Thumb pinch** | Right click | Touch middle finger and thumb together |
 
 ### Right Hand (Scroll Hand)
 
-| Gesture | Action | How To |
-|---------|--------|--------|
-| ✌️ **Index + Middle extended** | Scroll | Extend both fingers together, move hand up/down |
+| Gesture | Action | Description |
+|---------|--------|-------------|
+| **Index + Middle extended** | Scroll | Extend both fingers together, move hand up/down |
 
 ### Visual Feedback
 
-- **Purple box** = Normal mode, cursor active
-- **Green box** = Grab mode, dragging active
-- **Green ring** = Click registered (expands from cursor position)
-- **Status text** = Shows current gesture state
+- **Purple box** - Normal mode, cursor active
+- **Green box** - Grab mode, dragging active
+- **Green ring** - Click registered (expands from cursor position)
+- **Status text** - Shows current gesture state
 
 ---
 
-## ⚙️ Configuration & Tuning
+## Configuration & Tuning
 
-### Key Parameters (in code)
+### Key Parameters
+
+All configurable parameters are located at the top of the script:
 
 ```python
 # Cursor Control
@@ -262,7 +264,7 @@ GRAB_HOLD_TIME = 0.5  # Increase hold time before drag starts
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Camera Issues
 
@@ -315,7 +317,7 @@ GRAB_HOLD_TIME = 0.5  # Increase hold time before drag starts
 
 ---
 
-## 📊 Debug Mode
+## Debug Mode
 
 Enable detailed debugging:
 ```python
@@ -331,7 +333,7 @@ DEBUG_MODE = True
 **Middle Section** (per hand):
 - Pinch detection ratios and thresholds
 - Frame counters for stability
-- "DETECTED ✓" when gesture confirmed
+- "DETECTED" status when gesture confirmed
 - Hold timer progress bar for grab
 
 **Bottom Section** (Right hand):
@@ -347,9 +349,9 @@ DEBUG_MODE = True
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-### Phase 1: Native Input Layer ✅ (Next Priority)
+### Phase 1: Native Input Layer (Next Priority)
 - [ ] Replace `pyautogui` with `pynput` (Windows)
 - [ ] Implement `evdev` virtual HID (Linux)
 - [ ] Add Quartz Events support (macOS)
@@ -428,11 +430,12 @@ This project evolved through multiple iterations addressing real usability issue
 
 ---
 
-## 📝 Code Structure
+## Code Structure
 
 ### Main Files
 
-- `hand_control.py` - Latest with improved scroll detection
+- `hand_control_final.py` - Current working version (pyautogui-based)
+- `hand_control_fixed.py` - Latest with improved scroll detection
 
 ### Key Components
 
@@ -456,7 +459,7 @@ This project evolved through multiple iterations addressing real usability issue
 
 ---
 
-## ⚠️ Important Notes
+## Important Notes
 
 ### This is NOT Production Software
 
@@ -464,7 +467,7 @@ This project evolved through multiple iterations addressing real usability issue
 - **No accessibility compliance** - Not tested for users with disabilities
 - **No security audit** - Camera access without encryption
 - **No error recovery** - Crashes may leave mouse in weird state
-- **No documentation** - Code comments are minimal
+- **No comprehensive documentation** - Code comments are minimal
 
 ### Known Bugs
 
@@ -483,6 +486,16 @@ This project evolved through multiple iterations addressing real usability issue
 
 ---
 
+## Acknowledgments
+
+This project was developed in collaboration with AI assistance (Claude by Anthropic). AI was used for:
+- Rapid prototyping of gesture detection algorithms
+- Debugging performance and accuracy issues
+- Iterative refinement through multiple development cycles
+- Documentation and code structure improvements
+
+---
+
 ## Credits & Inspiration
 
 ### Core Technologies
@@ -498,19 +511,19 @@ This project evolved through multiple iterations addressing real usability issue
 
 ---
 
-## 📄 License
+## License
 
 [License information to be added]
 
 ---
 
-## 📧 Contact & Contributions
+## Contact & Contributions
 
-email: aarush.narora@gmail.com
+[Contact information and contribution guidelines to be added]
 
 ---
 
-## 🔗 Resources
+## Resources
 
 ### Documentation
 - [MediaPipe Hands Documentation](https://google.github.io/mediapipe/solutions/hands.html)
@@ -526,6 +539,6 @@ email: aarush.narora@gmail.com
 
 ---
 
-**Last Updated**: January 2025  
+**Last Updated**: March 2026  
 **Version**: 0.1.0-alpha  
-**Status**: 🚧 Experimental / Work in Progress
+**Status**: Experimental / Work in Progress
